@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 function EmployeeRegisterComponent() {
     return (
@@ -9,7 +10,9 @@ function EmployeeRegisterComponent() {
 
                 <h4>If you are an Employee:</h4>
                 <h5 className="m-2 mb-4">Click Here to register to work!</h5>
-                <button type="button" className="btn btn-outline-info">Register to Work</button>
+                <Link to="/EmployeeLogin">
+                    <button type="button" className="btn btn-outline-info">Register to Work</button>
+                </Link>
             </div>
         </div>
     )

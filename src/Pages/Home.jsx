@@ -11,7 +11,7 @@ function Home() {
                 {/* Redirecting Container - already centered due to parent styles */}
                 <div className="container-fluid d-flex flex-column align-items-center justify-content-center m-4 gap-2">
                     
-                    <div className="d-flex flex-column align-items-center justify-content-center gap-2 m-4 mt-5">
+                    <div className="d-flex flex-column align-items-center justify-content-center gap-2 m-4 mt-4">
                         <ManagerLoginComponent />
                     </div>
 

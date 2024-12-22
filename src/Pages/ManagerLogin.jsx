@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import LoginManagerForm from "../Components/LoginManagerForm";
 import EmployeeRegisterComponent from '../Components/EmployeeRegisterComponent';
 
@@ -9,9 +10,11 @@ function ManagerLogin() {
 
         <div className="col-md-5 col-12 p-4 m-3 d-flex flex-column align-items-center justify-content-center">
           <EmployeeRegisterComponent />
+          <Link to="/"> 
           <button type="button" className="btn btn-success mt-3">Home Page</button>
+          </Link>
         </div>
-
+        
         <div className="col-md-5 col-12 p-4 m-3">
           <LoginManagerForm />
         </div>
