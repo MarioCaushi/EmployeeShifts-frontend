@@ -1,7 +1,12 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const PageError = () => {
     const navigate = useNavigate();
+
+      useEffect(() => {
+        document.title = "Employee Shifts - Error"; // Sets the browser tab title
+      }, []);
 
     const goBack = () => {
         navigate(-1);

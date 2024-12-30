@@ -1,10 +1,13 @@
 import { useState } from "react";
 import React from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom'; 
+
 
 function EmployeeRegisterForm() {
     const [employeeID, setEmployeeID] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
+    const navigate = useNavigate();
 
     //Function to show the values of the buttons in the input
     const handleButtonClick = (number) => {
@@ -31,12 +34,27 @@ function EmployeeRegisterForm() {
                 .then(response => {
                     // handle success
 
-                    
+                    //Create an object with the response data
+                    const Employee = {
+                        "EmployeeID": response.data.employeeId,
+                        "Name": response.data.name,
+                        "LastName": response.data.lastName,
+                        "Position": response.data.position,
+                        "Status": response.data.status,
+                    };
+
+                    console.log(Employee);
+
+                    //Save the object in localStorage for later use
+                    localStorage.setItem("employee-login", JSON.stringify(Employee));
+
+                    window.open(`/Employee`, '_blank');
+
+                    setEmployeeID("");
                 })
                 .catch(error => {
                     // handle error
                     setErrorMessage("The employee with this ID was not found, try another one!");
-
                 });
         }
 

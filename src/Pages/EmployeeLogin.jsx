@@ -1,9 +1,14 @@
 import React from 'react'
+import { useEffect } from 'react';
 import { Link } from "react-router-dom";
 import ManagerLoginComponent from '../Components/ManagerLoginComponent';
 import EmployeeRegisterForm from '../Components/EmployeeRegisterForm';
 
 function EmployeeLogin() {
+      useEffect(() => {
+        document.title = "Employee Shifts - EmployeeLogin"; // Sets the browser tab title
+      }, []);
+
     return (
         <div>
             <div className="container-fluid d-flex align-items-center justify-content-center p-3 mt-5">
