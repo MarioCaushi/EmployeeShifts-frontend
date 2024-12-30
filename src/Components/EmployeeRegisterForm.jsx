@@ -1,15 +1,56 @@
+import { useState } from "react";
 import React from 'react';
+import axios from 'axios';
 
 function EmployeeRegisterForm() {
+    const [employeeID, setEmployeeID] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+
+    //Function to show the values of the buttons in the input
+    const handleButtonClick = (number) => {
+        setEmployeeID(employeeID + number);
+        setErrorMessage("");
+    }
+
+    //Function to also allow the input field to be edited via keyboard
+    const handleChange = (event) => {
+        setEmployeeID(event.target.value);
+        setErrorMessage("");
+
+    }
+
+    const handleOkButton = () => {
+
+        if (employeeID.length !== 8) {
+            setErrorMessage("EmployeeID must be of length 8")
+        }
+        else {
+            setErrorMessage("");
+
+            axios.get(`api/Employee/get-employee-by-id/${parseInt(employeeID)}`)
+                .then(response => {
+                    // handle success
+
+                    
+                })
+                .catch(error => {
+                    // handle error
+                    setErrorMessage("The employee with this ID was not found, try another one!");
+
+                });
+        }
+
+    }
 
     const createButton = (number) => (
-        <div className="col-3 m-1 p-2"> {/* Adjusted for three buttons per row */}
-            <button type="button" className="btn btn-secondary" style={{
-                width: "90px",
-                height: "70px",
-                borderRadius: "10px",
-                fontSize: "25pt"
-            }}>
+        <div className="col-3 m-1 p-2">
+            <button type="button" className="btn btn-secondary" onClick={() => handleButtonClick(number)}
+                style={{
+                    width: "90px",
+                    height: "70px",
+                    borderRadius: "10px",
+                    fontSize: "25pt"
+                }}>
                 {number}
             </button>
         </div>
@@ -25,6 +66,8 @@ function EmployeeRegisterForm() {
                         placeholder="Write or Click the buttons"
                         name="employee-register"
                         id="employee-register"
+                        value={employeeID}
+                        onChange={handleChange}
                         style={{
                             fontSize: "15pt",
                             fontWeight: "bold",
@@ -48,29 +91,34 @@ function EmployeeRegisterForm() {
                         {createButton(9)}
                     </div>
                     <div className="row justify-content-center">
-                    <div className="col-3 m-1 p-2"> 
-                        <button type="button" className="btn btn-outline-danger text-center" style={{
-                            width: "90px",
-                            height: "70px",
-                            borderRadius: "10px",
-                            fontSize: "20pt"
-                        }} >
-                            Clear
-                        </button>
+                        <div className="col-3 m-1 p-2">
+                            <button type="button" className="btn btn-outline-danger text-center" style={{
+                                width: "90px",
+                                height: "70px",
+                                borderRadius: "10px",
+                                fontSize: "20pt"
+                            }} onClick={() => setEmployeeID('')}>
+                                Clear
+                            </button>
                         </div>
                         {createButton(0)}
-                        <div className="col-3 m-1 p-2"> 
-                        <button type="button" className="btn btn-outline-success text-center" style={{
-                            width: "90px",
-                            height: "70px",
-                            borderRadius: "10px",
-                            fontSize: "20pt"
-                        }} >
-                            OK
-                        </button>
+                        <div className="col-3 m-1 p-2">
+                            <button type="button" className="btn btn-outline-success text-center" style={{
+                                width: "90px",
+                                height: "70px",
+                                borderRadius: "10px",
+                                fontSize: "20pt"
+                            }} onClick={() => handleOkButton()}>
+                                OK
+                            </button>
                         </div>
                     </div>
                 </div>
+                {errorMessage && (
+                    <div className="container text-danger" id="login-evaluation">
+                        {errorMessage}
+                    </div>
+                )}
             </div>
         </div>
     );
