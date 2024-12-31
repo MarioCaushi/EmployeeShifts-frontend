@@ -7,6 +7,7 @@ import EmployeeLogin from './Pages/EmployeeLogin';
 import Employee from './Pages/Employee';
 import ManagerHome from './Pages/ManagerHome';
 import ManagerEdit from './Pages/ManagerEdit';
+import EmployeeAdd from './Pages/EmployeeAdd';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path='/Employee' element={<Employee/>}/>
         <Route path='/ManagerHome' element={<ManagerHome/>}/>
         <Route path='/ManagerEdit' element={<ManagerEdit/>}/>
+        <Route path='/EmployeeAdd' element={<EmployeeAdd/>}/>
         <Route path="*" element={<PageError />} />
       </Routes>
     </>
