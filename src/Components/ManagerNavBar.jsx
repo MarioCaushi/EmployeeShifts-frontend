@@ -19,7 +19,7 @@ function ManagerNavBar() {
                                 <Link className="nav-link" to="/ManagerHome">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/edit-home">Edit Personal Info</Link>
+                                <Link className="nav-link" to="/ManagerEdit">Edit Personal Info</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/view-employees">View Employees</Link>
