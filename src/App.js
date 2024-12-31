@@ -5,6 +5,7 @@ import PageError  from "./Pages/PageError";
 import ManagerLogin from './Pages/ManagerLogin';
 import EmployeeLogin from './Pages/EmployeeLogin';
 import Employee from './Pages/Employee';
+import ManagerHome from './Pages/ManagerHome';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path='/ManagerLogin' element={<ManagerLogin/>}/>
         <Route path='/EmployeeLogin' element={<EmployeeLogin/>}/>
         <Route path='/Employee' element={<Employee/>}/>
+        <Route path='/ManagerHome' element={<ManagerHome/>}/>
         <Route path="*" element={<PageError />} />
       </Routes>
     </>

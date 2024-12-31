@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; //use it for the redirection part after that page is built
-
 
 function LoginManagerForm() {
     const [username, setUsername] = useState("");
@@ -30,8 +28,15 @@ function LoginManagerForm() {
             }
             return response.json();
         })
-        .then(data => {
-            alert("Successful but next part is yet to be built" );
+        .then(response => {
+
+            localStorage.setItem("managerid", JSON.stringify(response));
+
+            window.open("/ManagerHome", "_blank");
+
+            setUsername("");
+            setPassword("");
+
         })
         .catch(error => {
             setErrorMessage(error.message);
