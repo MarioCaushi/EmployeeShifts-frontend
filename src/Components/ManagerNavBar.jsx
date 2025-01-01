@@ -22,7 +22,7 @@ function ManagerNavBar() {
                                 <Link className="nav-link" to="/ManagerEdit">Edit Personal Info</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/view-employees">View Employees</Link>
+                                <Link className="nav-link" to="/ViewEmployees">View Employees</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/EmployeeAdd">Add Employees</Link>
