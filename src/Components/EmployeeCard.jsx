@@ -2,7 +2,7 @@ import React from 'react';
 
 function EmployeeCard({employee, handleDeleteButton, handleDetails, handleEdit}) {
     return (
-        <div className="col-lg-3 col-md-4 col-sm-6 m-3"> {/* Include margin-bottom for spacing between rows */}
+        <div className="col-lg-3 col-md-4 col-sm-6 m-3">
             <div className="d-flex flex-column align-items-center p-3 bg-white border shadow rounded">
                 <div className="text-center">
                     <p className="employee-name m-0"><strong>{employee.name} {employee.lastName}</strong></p>

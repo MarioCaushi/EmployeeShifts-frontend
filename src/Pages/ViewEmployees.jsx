@@ -102,7 +102,7 @@ function ViewEmployees() {
 
     const handleEdit = (id) => {
         localStorage.setItem("employeeId", JSON.stringify(id));
-        navigate('/EmployeeDetails');
+        navigate('/EmployeeEdit');
     };
 
 

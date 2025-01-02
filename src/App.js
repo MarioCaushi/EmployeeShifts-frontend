@@ -9,6 +9,7 @@ import ManagerHome from './Pages/ManagerHome';
 import ManagerEdit from './Pages/ManagerEdit';
 import EmployeeAdd from './Pages/EmployeeAdd';
 import ViewEmployees from './Pages/ViewEmployees';
+import EmployeeDetails from './Pages/EmployeeDetails';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path='/ManagerEdit' element={<ManagerEdit/>}/>
         <Route path='/EmployeeAdd' element={<EmployeeAdd/>}/>
         <Route path='/ViewEmployees' element={<ViewEmployees/>}/>
+        <Route path='/EmployeeDetails' element={<EmployeeDetails/>}/>
         <Route path="*" element={<PageError />} />
       </Routes>
     </>
