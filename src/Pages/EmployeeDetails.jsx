@@ -3,12 +3,12 @@ import ManagerNavBar from '../Components/ManagerNavBar';
 import EmployeeDetailsComponent from '../Components/EmployeeDetailsComponent';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
-
+import EmployeeEvents from '../Components/EmployeeEvents';
 
 function EmployeeDetails() {
     const [employee, setEmployee] = useState(null);
     const [shift, setShift] = useState(null);
-
+    const [events, setEvents] = useState([]);
     const [loading, setLoading] = useState(true);
     
     const navigate = useNavigate(); 
@@ -29,7 +29,17 @@ function EmployeeDetails() {
                 axios.get(`api/Shift/get-shift-by-id/${response.data.shiftId}`)
                     .then(shiftResponse => {
                         setShift(shiftResponse.data);
-                        setLoading(false);
+
+                        axios.get(`api/Event/get-events-of-employee/${employeeId}`)
+                        .then(eventResponse => {
+                            setEvents(eventResponse.data);
+                            setLoading(false);  
+                        })
+                        .catch(error => {
+                            console.error("Error fetching events data:", error);
+                            setLoading(false);
+                        });
+
                     })
                     .catch(error => {
                         console.error("Error fetching shift data:", error);
@@ -43,7 +53,6 @@ function EmployeeDetails() {
     }, []);
 
     const handleDeleteButton = (id) => {
-
         if (window.confirm("Are you sure?")) {
             axios.delete(`api/Employee/delete-employee/${id}`)
                 .then(response => {
@@ -61,6 +70,9 @@ function EmployeeDetails() {
         navigate('/EmployeeEdit');
     };
 
+    // Ensuring events are reversed just before passing to the component
+    const reversedEvents = [...events].reverse();
+
     return (
         <div>
             <ManagerNavBar />
@@ -75,6 +87,7 @@ function EmployeeDetails() {
             ) : employee && shift ? (
                 <>
                     <EmployeeDetailsComponent employee={employee} shift={shift} />
+
                     <div className="d-flex justify-content-center mt-4">
                         <button
                             className="btn btn-warning mx-2"
@@ -101,8 +114,10 @@ function EmployeeDetails() {
                     Failed to load employee details.
                 </div>
             )}
+            <div className='container'>
+                <EmployeeEvents events={reversedEvents} loading={loading} />
+            </div>
         </div>
-
     );
 }
 

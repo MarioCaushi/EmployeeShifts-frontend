@@ -9,7 +9,7 @@ function EmployeeDetailsComponent({ employee, shift }) {
                     <div className="card-header bg-info text-white">
                         <h5 className="mb-0 text-center">
                             {`${employee.name} ${employee.lastName}`} <br />
-                            <small>Employee ID: {employee.employeeId}</small>
+                            <strong> <small>Employee ID: {employee.employeeId}</small></strong>
                         </h5>
                     </div>
                     <div className="card-body">
