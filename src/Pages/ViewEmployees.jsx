@@ -3,6 +3,8 @@ import ManagerNavBar from '../Components/ManagerNavBar';
 import EmployeeCard from '../Components/EmployeeCard';
 import { useState, useEffect } from 'react';
 import axios from "axios";
+import { useNavigate } from 'react-router-dom';
+
 
 function ViewEmployees() {
 
@@ -14,6 +16,8 @@ function ViewEmployees() {
     const [triggerFetching, setTriggerFetching] = useState(false);
 
     const [errorMessage, setErrorMessage] = useState("");
+
+    const navigate = useNavigate(); 
 
     useEffect(() => {
 
@@ -65,33 +69,41 @@ function ViewEmployees() {
 
     const toggleTriggerFetching = () => {
 
-        if(triggerFetching == false)
-        {
+        if (triggerFetching == false) {
             setTriggerFetching(true);
         }
-        else
-        {
+        else {
             setTriggerFetching(false);
         }
     };
 
     const handleDeleteButton = (id) => {
 
-        if(window.confirm("Are you sure?")){
+        if (window.confirm("Are you sure?")) {
             axios.delete(`api/Employee/delete-employee/${id}`)
-            .then(response => {
-    
-                console.log(response);
-                toggleTriggerFetching();
-    
-            })
-            .catch(error => {
-                console.log("An error happened", error);
-            });
+                .then(response => {
+
+                    console.log(response);
+                    toggleTriggerFetching();
+
+                })
+                .catch(error => {
+                    console.log("An error happened", error);
+                });
         }
 
-        };
+    };
 
+
+    const handleDetails = (id) => {
+        localStorage.setItem("employeeId", JSON.stringify(id));
+        navigate('/EmployeeDetails');
+    };
+
+    const handleEdit = (id) => {
+        localStorage.setItem("employeeId", JSON.stringify(id));
+        navigate('/EmployeeDetails');
+    };
 
 
     return (
@@ -113,7 +125,7 @@ function ViewEmployees() {
                             className="btn btn-outline-success ms-2 rounded-pill ml-2"
                             onClick={() => {
                                 setSearch("");
-                                setFilteredEmployees(employees); 
+                                setFilteredEmployees(employees);
                             }}>
                             Clear
                         </button>
@@ -133,10 +145,12 @@ function ViewEmployees() {
 
             <div className="d-flex flex-wrap justify-content-center">
                 {filteredEmployees.map((employee) => (
-                    <EmployeeCard 
-                        key={employee.employeeId} 
-                        employee={employee} 
+                    <EmployeeCard
+                        key={employee.employeeId}
+                        employee={employee}
                         handleDeleteButton={() => handleDeleteButton(employee.employeeId)}
+                        handleDetails= { () => handleDetails(employee.employeeId)}
+                        handleEdit = {()=> handleEdit(employee.employeeId)}
                     />
                 ))}
             </div>
@@ -145,4 +159,4 @@ function ViewEmployees() {
     );
 }
 
-export default ViewEmployees ;
+export default ViewEmployees;

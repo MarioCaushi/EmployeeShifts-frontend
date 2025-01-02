@@ -1,6 +1,6 @@
 import React from 'react';
 
-function EmployeeCard({employee, handleDeleteButton}) {
+function EmployeeCard({employee, handleDeleteButton, handleDetails, handleEdit}) {
     return (
         <div className="col-lg-3 col-md-4 col-sm-6 m-3"> {/* Include margin-bottom for spacing between rows */}
             <div className="d-flex flex-column align-items-center p-3 bg-white border shadow rounded">
@@ -14,8 +14,8 @@ function EmployeeCard({employee, handleDeleteButton}) {
                     <p className="m-0"><strong> ID: {employee.employeeId}</strong></p>
                 </div>
                 <div className="employee-actions mt-2">
-                    <button type="button" className="btn btn-info btn-sm m-1 rounded-2" id="view-f">View Details</button>
-                    <button type="button" className="btn btn-warning btn-sm m-1 rounded-2" id="edit-f">Edit</button>
+                    <button type="button" className="btn btn-info btn-sm m-1 rounded-2" id="view-f" onClick={handleDetails}>View Details</button>
+                    <button type="button" className="btn btn-warning btn-sm m-1 rounded-2" id="edit-f" onClick={handleEdit}>Edit</button>
                     <button type="button" className="btn btn-danger btn-sm m-1 rounded-2" id="delete-f" onClick={handleDeleteButton}>Delete</button>
                 </div>
             </div>
