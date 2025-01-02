@@ -10,6 +10,7 @@ import ManagerEdit from './Pages/ManagerEdit';
 import EmployeeAdd from './Pages/EmployeeAdd';
 import ViewEmployees from './Pages/ViewEmployees';
 import EmployeeDetails from './Pages/EmployeeDetails';
+import EmployeeEdit from './Pages/EmployeeEdit';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path='/EmployeeAdd' element={<EmployeeAdd/>}/>
         <Route path='/ViewEmployees' element={<ViewEmployees/>}/>
         <Route path='/EmployeeDetails' element={<EmployeeDetails/>}/>
+        <Route path='/EmployeeEdit' element={<EmployeeEdit/>}/>
         <Route path="*" element={<PageError />} />
       </Routes>
     </>
