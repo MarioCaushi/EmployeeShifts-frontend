@@ -28,7 +28,7 @@ function ManagerNavBar() {
                                 <Link className="nav-link" to="/EmployeeAdd">Add Employees</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/insights">Insights</Link>
+                                <Link className="nav-link" to="/Insights">Insights</Link>
                             </li>
                         </ul>
                         <ul className="navbar-nav">

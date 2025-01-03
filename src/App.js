@@ -11,6 +11,7 @@ import EmployeeAdd from './Pages/EmployeeAdd';
 import ViewEmployees from './Pages/ViewEmployees';
 import EmployeeDetails from './Pages/EmployeeDetails';
 import EmployeeEdit from './Pages/EmployeeEdit';
+import Insights from './Pages/Insights';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path='/ViewEmployees' element={<ViewEmployees/>}/>
         <Route path='/EmployeeDetails' element={<EmployeeDetails/>}/>
         <Route path='/EmployeeEdit' element={<EmployeeEdit/>}/>
+        <Route path='/Insights' element={<Insights/>}/>
         <Route path="*" element={<PageError />} />
       </Routes>
     </>
