@@ -1,5 +1,13 @@
 # EmployeeShift Frontend
 
+![React](https://img.shields.io/badge/React.js-Frontend-blue?logo=react&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript&logoColor=white)
+![HTML5](https://img.shields.io/badge/HTML5-Frontend-orange?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-Frontend-blue?logo=css3&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Completed-success)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-Styling-7952B3?logo=bootstrap&logoColor=white)
+
 Welcome to the frontend repository for EmployeeShift, a dynamic web application built with ReactJS, designed to manage employee shifts effortlessly. This application interfaces easily with a .NET backend via Axios for API calls, enhancing real-time data interaction and management.
 
 ## Features
